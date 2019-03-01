@@ -1,0 +1,10 @@
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\bin\Debug\TVG_Graph.exe.config
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\bin\Debug\TVG_Graph.exe
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\bin\Debug\TVG_Graph.pdb
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\obj\Debug\TVG_Graph.csprojAssemblyReference.cache
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\obj\Debug\TVG_Graph.Properties.Resources.resources
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\obj\Debug\TVG_Graph.csproj.GenerateResource.cache
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\obj\Debug\TVG_Graph.csproj.CoreCompileInputs.cache
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\obj\Debug\TVG_Graph.exe
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\obj\Debug\TVG_Graph.pdb
+C:\Users\Henbx\source\repos\TVG_Graph\TVG_Graph\obj\Debug\TVG_Graph.Form1.resources
