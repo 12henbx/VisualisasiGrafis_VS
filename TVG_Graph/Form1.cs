@@ -47,6 +47,7 @@ namespace TVG_Graph
 
         private void button_browse_Click(object sender, EventArgs e)
         {
+            Form2.points.Clear();
             string[] text;
             var openFile = new System.Windows.Forms.OpenFileDialog();
             int size = -1, read_iter = 0;
@@ -57,7 +58,7 @@ namespace TVG_Graph
                 try
                 {
                     //read_iter = 0;
-                    text = File.ReadAllLines(@"C:\Users\Henbx\Desktop\WriteLines.txt");
+                    text = File.ReadAllLines(file);
 
                     while (text[read_iter] != "")
                     {
@@ -88,7 +89,16 @@ namespace TVG_Graph
 
         private void button_save_Click(object sender, EventArgs e)
         {
-            System.IO.File.WriteAllLines(@"C:\Users\Henbx\Desktop\WriteLines.txt", write_row);
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.Title = "Save a File";
+
+            // If the file name is not an empty string open it for saving.  
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                System.IO.File.WriteAllLines(saveFileDialog1.FileName, write_row);
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

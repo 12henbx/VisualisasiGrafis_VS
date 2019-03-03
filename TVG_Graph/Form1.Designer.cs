@@ -37,6 +37,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button_browse = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
+            this.button_transform = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +89,7 @@
             this.pictureBox2.InitialImage = null;
             this.pictureBox2.Location = new System.Drawing.Point(198, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(327, 423);
+            this.pictureBox2.Size = new System.Drawing.Size(552, 392);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -110,7 +111,7 @@
             this.button_browse.Name = "button_browse";
             this.button_browse.Size = new System.Drawing.Size(117, 56);
             this.button_browse.TabIndex = 6;
-            this.button_browse.Text = "browse..";
+            this.button_browse.Text = "browse text..";
             this.button_browse.UseVisualStyleBackColor = true;
             this.button_browse.Click += new System.EventHandler(this.button_browse_Click);
             // 
@@ -124,9 +125,20 @@
             this.button_save.UseVisualStyleBackColor = true;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
+            // button_transform
+            // 
+            this.button_transform.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button_transform.Location = new System.Drawing.Point(19, 463);
+            this.button_transform.Name = "button_transform";
+            this.button_transform.Size = new System.Drawing.Size(117, 58);
+            this.button_transform.TabIndex = 8;
+            this.button_transform.Text = "Transform";
+            this.button_transform.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(993, 533);
+            this.Controls.Add(this.button_transform);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.button_browse);
             this.Controls.Add(this.button2);
@@ -159,6 +171,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button_browse;
         private System.Windows.Forms.Button button_save;
+        private System.Windows.Forms.Button button_transform;
     }
 }
 

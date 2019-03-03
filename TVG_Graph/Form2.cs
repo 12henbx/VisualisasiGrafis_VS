@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,15 +33,16 @@ namespace TVG_Graph
             //    points.Add(new PointF((float)250+i, (float)250+i));
 
             PointF[] ptsArray = points.ToArray();
-            
-            // Draw polygon
-            try
-            {
-                g.DrawPolygon(redPen, ptsArray);
-            }catch(InvalidCastException p)
-            {
-                Console.WriteLine("error");
-            }
+
+                // Draw polygon
+                try
+                {
+                    g.DrawPolygon(redPen, ptsArray);
+                }
+                catch (IOException p)
+                {
+                    Console.WriteLine("Error : {0}", p);
+                }
             
             
 
