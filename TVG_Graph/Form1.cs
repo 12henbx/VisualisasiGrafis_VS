@@ -15,39 +15,39 @@ namespace TVG_Graph
 {
     public partial class Form1 : Form
     {
-        private string coordinate;
-        private bool cek=true;
-        private float tmp_x = 0, tmp_y = 0, read_axis_x=0, read_axis_y=0;
-        public static int iter = -1;
+ 
         private string[] write_row = new string[500];
-        public static List<PointF> read_points = new List<PointF>();
+        private string dir_awal = "D:\\Dev\\CSharp\\VisualisasiGrafis_VS\\coordinates\\awal.txt";
+        private string dir_akhir = "D:\\Dev\\CSharp\\VisualisasiGrafis_VS\\coordinates\\akhir.txt";
+        private float read_axis_x=0, read_axis_y=0;
+        private int iter = -1;
+        private bool isTransform;
 
+        private List<PointF> read_points = new List<PointF>();
+        private List<PointF> points = new List<PointF>();
+        private List<PointF> poin_awal = new List<PointF>();
+        private List<PointF> poin_akhir = new List<PointF>();
+
+        private PointF[] ptsAwal;
+        private PointF[] ptsAkhir;
 
         public Form1()
         {
             InitializeComponent();
-            //this.Cursor = new Cursor(Cursor.Current.Handle);
-            //Cursor.Position = new Point(Cursor.Position.X - 50, Cursor.Position.Y - 50);
-            //Cursor.Clip = new Rectangle(this.Location, this.Size);
-            //pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            Form2 frm = new Form2();
-            frm.Show();
-        }
+            ptsAwal = poin_awal.ToArray();
+            ptsAkhir = poin_akhir.ToArray();
+            isTransform = false;
 
-        protected override void OnMouseMove(System.Windows.Forms.MouseEventArgs e)
-        { 
-            //c_x.Text = Cursor.Position.X.ToString();
-            //c_y.Text = Cursor.Position.Y.ToString();
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void button_browse_Click(object sender, EventArgs e)
         {
-            Form2.points.Clear();
+            points.Clear();
             string[] text;
             var openFile = new System.Windows.Forms.OpenFileDialog();
             int size = -1, read_iter = 0;
@@ -56,7 +56,7 @@ namespace TVG_Graph
             {
                 string file = openFile.FileName;
                 Console.WriteLine("nama file: {0}", file);
-                if (file == "D:\\Dev\\CSharp\\VisualisasiGrafis_VS\\awal.txt")
+                if (file == dir_awal)
                 {
                     try
                     {
@@ -77,7 +77,7 @@ namespace TVG_Graph
                             else
                             {
                                 read_axis_y = float.Parse(text[i]);
-                                Form2.poin_awal.Add(new PointF((float)read_axis_x, (float)read_axis_y));
+                                poin_awal.Add(new PointF((float)read_axis_x, (float)read_axis_y));
                             }
                         }
                         size = text.Length;
@@ -85,9 +85,11 @@ namespace TVG_Graph
                     catch (IOException)
                     {
                     }
+
+                    ptsAwal = poin_awal.ToArray();
                 }
 
-                if (file == "D:\\Dev\\CSharp\\VisualisasiGrafis_VS\\akhir.txt")
+                if (file == dir_akhir)
                 {
                     try
                     {
@@ -108,7 +110,7 @@ namespace TVG_Graph
                             else
                             {
                                 read_axis_y = float.Parse(text[i]);
-                                Form2.poin_akhir.Add(new PointF((float)read_axis_x, (float)read_axis_y));
+                                poin_akhir.Add(new PointF((float)read_axis_x, (float)read_axis_y));
                             }
                         }
                         size = text.Length;
@@ -116,67 +118,147 @@ namespace TVG_Graph
                     catch (IOException)
                     {
                     }
+
+                    ptsAkhir = poin_akhir.ToArray();
+                    
                 }
+                panel1.Refresh();
+                Invalidate();
             }
             Console.WriteLine(size); // <-- Shows file size in debugging mode.
             Console.WriteLine(result);
         }
 
-        private void button_save_Click(object sender, EventArgs e)
+        private void button_transform_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.Title = "Save a File";
-
-            // If the file name is not an empty string open it for saving.  
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                System.IO.File.WriteAllLines(saveFileDialog1.FileName, write_row);
-            }
+            isTransform = isTransform ? false : true;
+            panel1.Refresh();
+            Invalidate();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            MouseEventArgs me = (MouseEventArgs)e;
-            Point coordinates = me.Location;
-            coordinate = coordinates.ToString();
-            byte[] asciiBytes = Encoding.ASCII.GetBytes(coordinate);
-            tmp_x = 0;
-            tmp_y = 0;
-            cek = true;
-            for (int i=0;i<coordinate.Length; i++)
+            Graphics g = e.Graphics;
+
+            // Create a pen
+            Pen greenPen = new Pen(Color.Green, 2);
+            Pen redPen = new Pen(Color.Red, 2);
+
+            Console.WriteLine("masuk onPaint");
+            Console.WriteLine("isTransform: {0}", isTransform);
+
+
+            if (isTransform)
             {
-                if (asciiBytes[i] > 47 && asciiBytes[i] < 58)
+
+                for (int i = 0; i < ptsAkhir.Count(); i++)
                 {
-                    if (cek)
-                    {
-                        tmp_x = tmp_x * 10;
-                    }
-                    else
-                    {
-                        tmp_y = tmp_y * 10;
-                    }
-                    if (cek)
-                    {
-                        tmp_x = tmp_x + (asciiBytes[i] - 48);
-                        if (asciiBytes[i + 1] < 48) cek = false;
-                    }
-                    else
-                    {
-                        tmp_y = tmp_y + (asciiBytes[i] - 48);
-                    }
+                    ptsAwal[i] = MovePointTo(ptsAwal[i], ptsAkhir[i]);
+                }
+
+                // Draw polygon awal
+                try
+                {
+                    if (ptsAwal.Count() > 1)
+                        g.DrawPolygon(redPen, ptsAwal);
+                }
+                catch (IOException p)
+                {
+                    Console.WriteLine("Error : {0}", p);
+                }
+
+                // Draw polygon akhir
+                /*
+                try
+                {
+                    if (ptsAkhir.Count() > 1)
+                        g.DrawPolygon(greenPen, ptsAkhir);
+                }
+                catch (IOException p)
+                {
+                    Console.WriteLine("Error : {0}", p);
+                }
+                */
+
+                // Dispose of object
+                greenPen.Dispose();
+                redPen.Dispose();
+
+                if (!isFinish(ptsAwal, ptsAkhir))
+                {
+                    System.Threading.Thread.Sleep(10);
+                    panel1.Refresh();
+                    Invalidate();
                 }
             }
-            Form2.points.Add(new PointF((float)tmp_x, (float)tmp_y));
-            c_x.Text = tmp_x.ToString();
-            c_y.Text = tmp_y.ToString();
-            iter = iter + 1;
-            write_row[iter] = tmp_x.ToString();
-            iter = iter + 1;
-            write_row[iter] = tmp_y.ToString();
+            else
+            {
+                for (int i = 0; i < ptsAkhir.Count(); i++)
+                {
+                    ptsAwal[i] = MovePointTo(ptsAwal[i], ptsAkhir[i]);
+                }
+
+                // Draw polygon awal
+                try
+                {
+                    if (ptsAwal.Count() > 1)
+                        g.DrawPolygon(redPen, ptsAwal);
+                }
+                catch (IOException p)
+                {
+                    Console.WriteLine("Error : {0}", p);
+                }
+
+                // Draw polygon akhir
+                /*
+                try
+                {
+                    if (ptsAkhir.Count() > 1)
+                        g.DrawPolygon(greenPen, ptsAkhir);
+                }
+                catch (IOException p)
+                {
+                    Console.WriteLine("Error : {0}", p);
+                }
+                */
+
+                // Dispose of object
+                greenPen.Dispose();
+                redPen.Dispose();
+            }
         }
 
-        
+        private void button_reset_Click(object sender, EventArgs e)
+        {
+            ptsAwal = poin_awal.ToArray();
+            ptsAkhir = poin_akhir.ToArray();
+        }
+
+        private PointF MovePointTo(PointF awal, PointF akhir)
+        {
+            double r = Math.Sqrt(Math.Pow((awal.X - akhir.X), 2) + Math.Pow((awal.Y - akhir.Y), 2));
+            if (awal != akhir)
+            {
+
+                int dx = (int)Math.Round((akhir.X - awal.X) / r);
+                int dy = (int)Math.Round((akhir.Y - awal.Y) / r);
+                awal.X += dx;
+                awal.Y += dy;
+            }
+
+            return awal;
+        }
+
+        private bool isFinish(PointF[] awal, PointF[] akhir)
+        {
+            for (int i = 0; i < ptsAkhir.Count(); i++)
+            {
+                if (ptsAwal[i] != ptsAkhir[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

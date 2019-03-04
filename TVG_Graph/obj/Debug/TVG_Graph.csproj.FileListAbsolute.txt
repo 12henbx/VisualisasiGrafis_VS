@@ -18,4 +18,3 @@ D:\Dev\CSharp\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.csproj.Generate
 D:\Dev\CSharp\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.csproj.CoreCompileInputs.cache
 D:\Dev\CSharp\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.exe
 D:\Dev\CSharp\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.pdb
-D:\Dev\CSharp\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.Form2.resources
