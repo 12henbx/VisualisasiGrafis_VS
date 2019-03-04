@@ -167,19 +167,6 @@ namespace TVG_Graph
                     Console.WriteLine("Error : {0}", p);
                 }
 
-                // Draw polygon akhir
-                /*
-                try
-                {
-                    if (ptsAkhir.Count() > 1)
-                        g.DrawPolygon(greenPen, ptsAkhir);
-                }
-                catch (IOException p)
-                {
-                    Console.WriteLine("Error : {0}", p);
-                }
-                */
-
                 // Dispose of object
                 greenPen.Dispose();
                 redPen.Dispose();
@@ -247,6 +234,12 @@ namespace TVG_Graph
             }
 
             return awal;
+        }
+
+        private void draw_button_Click(object sender, EventArgs e)
+        {
+            Form_draw drawForm = new Form_draw();
+            drawForm.Show();
         }
 
         private bool isFinish(PointF[] awal, PointF[] akhir)
