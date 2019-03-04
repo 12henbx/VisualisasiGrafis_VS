@@ -55,32 +55,67 @@ namespace TVG_Graph
             if (result == DialogResult.OK) // Test result.
             {
                 string file = openFile.FileName;
-                try
+                Console.WriteLine("nama file: {0}", file);
+                if (file == "D:\\Dev\\CSharp\\VisualisasiGrafis_VS\\awal.txt")
                 {
-                    //read_iter = 0;
-                    text = File.ReadAllLines(file);
+                    try
+                    {
+                        //read_iter = 0;
+                        text = File.ReadAllLines(file);
 
-                    while (text[read_iter] != "")
-                    {
-                        read_iter++;
-                    }
-                    //Console.WriteLine(float.Parse(text[0])-9);
-                    for (int i = 0; i < read_iter; i++)
-                    {
-                        if (i % 2 == 0)
+                        while (text[read_iter] != "")
                         {
-                            read_axis_x = float.Parse(text[i]);
+                            read_iter++;
                         }
-                        else
+                        //Console.WriteLine(float.Parse(text[0])-9);
+                        for (int i = 0; i < read_iter; i++)
                         {
-                            read_axis_y = float.Parse(text[i]);
-                            Form2.points.Add(new PointF((float)read_axis_x, (float)read_axis_y));
+                            if (i % 2 == 0)
+                            {
+                                read_axis_x = float.Parse(text[i]);
+                            }
+                            else
+                            {
+                                read_axis_y = float.Parse(text[i]);
+                                Form2.poin_awal.Add(new PointF((float)read_axis_x, (float)read_axis_y));
+                            }
                         }
+                        size = text.Length;
                     }
-                    size = text.Length;
+                    catch (IOException)
+                    {
+                    }
                 }
-                catch (IOException)
+
+                if (file == "D:\\Dev\\CSharp\\VisualisasiGrafis_VS\\akhir.txt")
                 {
+                    try
+                    {
+                        //read_iter = 0;
+                        text = File.ReadAllLines(file);
+
+                        while (text[read_iter] != "")
+                        {
+                            read_iter++;
+                        }
+                        //Console.WriteLine(float.Parse(text[0])-9);
+                        for (int i = 0; i < read_iter; i++)
+                        {
+                            if (i % 2 == 0)
+                            {
+                                read_axis_x = float.Parse(text[i]);
+                            }
+                            else
+                            {
+                                read_axis_y = float.Parse(text[i]);
+                                Form2.poin_akhir.Add(new PointF((float)read_axis_x, (float)read_axis_y));
+                            }
+                        }
+                        size = text.Length;
+                    }
+                    catch (IOException)
+                    {
+                    }
                 }
             }
             Console.WriteLine(size); // <-- Shows file size in debugging mode.
@@ -141,5 +176,7 @@ namespace TVG_Graph
             iter = iter + 1;
             write_row[iter] = tmp_y.ToString();
         }
+
+        
     }
 }
