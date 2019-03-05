@@ -15,10 +15,10 @@ namespace TVG_Graph
 {
     public partial class Form1 : Form
     {
- 
+        //TODO: Ubah direktori koordinat
+        private string dir_awal = "D:\\Dev\\CSharp\\TVG_Tugas1_46360_46525\\coordinates\\awal.txt";
+        private string dir_akhir = "D:\\Dev\\CSharp\\TVG_Tugas1_46360_46525\\coordinates\\akhir.txt";
         private string[] write_row = new string[500];
-        private string dir_awal = "D:\\Dev\\CSharp\\VisualisasiGrafis_VS\\coordinates\\awal.txt";
-        private string dir_akhir = "D:\\Dev\\CSharp\\VisualisasiGrafis_VS\\coordinates\\akhir.txt";
         private float read_axis_x=0, read_axis_y=0;
         private int iter = -1;
         private bool isTransform;
@@ -142,7 +142,7 @@ namespace TVG_Graph
 
             // Create a pen
             Pen greenPen = new Pen(Color.Green, 2);
-            Pen redPen = new Pen(Color.Red, 2);
+            Pen redPen = new Pen(Color.Yellow, 5);
 
             Console.WriteLine("masuk onPaint");
             Console.WriteLine("isTransform: {0}", isTransform);

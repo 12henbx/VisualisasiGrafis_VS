@@ -29,3 +29,15 @@ C:\Users\Henbx\source\repos\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.c
 C:\Users\Henbx\source\repos\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.exe
 C:\Users\Henbx\source\repos\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.pdb
 C:\Users\Henbx\source\repos\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.Form_draw.resources
+D:\Dev\CSharp\VisualisasiGrafis_VS\TVG_Graph\obj\Debug\TVG_Graph.Form_draw.resources
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\bin\Debug\TVG_Graph.exe.config
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\bin\Debug\TVG_Graph.exe
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\bin\Debug\TVG_Graph.pdb
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\obj\Debug\TVG_Graph.csprojAssemblyReference.cache
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\obj\Debug\TVG_Graph.Form1.resources
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\obj\Debug\TVG_Graph.Form_draw.resources
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\obj\Debug\TVG_Graph.Properties.Resources.resources
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\obj\Debug\TVG_Graph.csproj.GenerateResource.cache
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\obj\Debug\TVG_Graph.csproj.CoreCompileInputs.cache
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\obj\Debug\TVG_Graph.exe
+D:\Dev\CSharp\TVG_Tugas1_46360_46525\TVG_Graph\obj\Debug\TVG_Graph.pdb

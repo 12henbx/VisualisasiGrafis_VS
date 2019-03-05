@@ -38,6 +38,8 @@
             this.button_reset = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.draw_button = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -45,7 +47,7 @@
             // 
             // button_browse
             // 
-            this.button_browse.Location = new System.Drawing.Point(12, 12);
+            this.button_browse.Location = new System.Drawing.Point(12, 63);
             this.button_browse.Name = "button_browse";
             this.button_browse.Size = new System.Drawing.Size(117, 56);
             this.button_browse.TabIndex = 6;
@@ -56,7 +58,7 @@
             // button_transform
             // 
             this.button_transform.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button_transform.Location = new System.Drawing.Point(12, 74);
+            this.button_transform.Location = new System.Drawing.Point(12, 125);
             this.button_transform.Name = "button_transform";
             this.button_transform.Size = new System.Drawing.Size(117, 58);
             this.button_transform.TabIndex = 8;
@@ -66,39 +68,40 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(157, 12);
+            this.panel1.Location = new System.Drawing.Point(157, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 705);
+            this.panel1.Size = new System.Drawing.Size(1155, 654);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(610, 306);
+            this.label2.Location = new System.Drawing.Point(875, 293);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 20);
+            this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "After";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(610, 19);
+            this.label1.Location = new System.Drawing.Point(875, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.Size = new System.Drawing.Size(50, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Before";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::TVG_Graph.Properties.Resources.pikachu;
-            this.pictureBox3.Location = new System.Drawing.Point(613, 326);
+            this.pictureBox3.Location = new System.Drawing.Point(878, 313);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(250, 250);
             this.pictureBox3.TabIndex = 1;
@@ -107,7 +110,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TVG_Graph.Properties.Resources.pichu;
-            this.pictureBox2.Location = new System.Drawing.Point(613, 44);
+            this.pictureBox2.Location = new System.Drawing.Point(878, 31);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(250, 250);
             this.pictureBox2.TabIndex = 0;
@@ -116,7 +119,7 @@
             // button_reset
             // 
             this.button_reset.BackColor = System.Drawing.Color.Red;
-            this.button_reset.Location = new System.Drawing.Point(12, 138);
+            this.button_reset.Location = new System.Drawing.Point(12, 189);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(117, 58);
             this.button_reset.TabIndex = 11;
@@ -134,9 +137,29 @@
             this.draw_button.UseVisualStyleBackColor = true;
             this.draw_button.Click += new System.EventHandler(this.draw_button_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(157, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(308, 17);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Henoch Hernanda C. M. (17/415236/TK/46525)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(157, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(277, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Ridwan Afwan K. F. (17/413920/TK/46360)";
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1082, 742);
+            this.ClientSize = new System.Drawing.Size(1337, 742);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.draw_button);
             this.Controls.Add(this.button_reset);
             this.Controls.Add(this.panel1);
@@ -149,6 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -168,6 +192,8 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button draw_button;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }
 
